@@ -1,14 +1,11 @@
 import csv
-from funciones import validate_login
-from funciones import menu_crud
-from funciones import create_user
-from funciones import show_users
-from funciones import update_user
+from funciones import *
 
-while True:
+repeat = True
+while repeat:
     print("\033[95m\nLOGIN\033[0m")
-    email = input("Correo: ")
-    password = input("Contraseña: ")
+    email = input("Correo: ").lower()
+    password = input("Contraseña: ").lower()
 
     validate = validate_login(email, password)
 
@@ -22,5 +19,16 @@ while True:
                 show_users()
             elif choice == 3:
                 update_user()
-    else:
+            elif choice == 4:
+                delete_user()
+            elif choice == 5:
+                search_user()
+            else:
+                print("\033[93m\n¡Bye!\033[0m")
+                repeat = False
+                break
+    elif validate == False:
         print("\033[91m\n¡ERROR! Correo o contraseña son incorrectos, intente nuevamente.\033[0m")
+    
+    else:
+        repeat = False
