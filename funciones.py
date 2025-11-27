@@ -32,8 +32,8 @@ def menu_crud():
     return choice
 
 def create_user():
-    name = input("\nNombres: ")
-    last_name = input("Apellidos: ")
+    name = input("\nNombres: ").lower()
+    last_name = input("Apellidos: ").lower()
     email = input("Correo: ").lower()
     with open("m1_python_actividad_6/usuarios.csv", "a", newline="") as archivo:
         escritor = csv.writer(archivo)
@@ -61,8 +61,8 @@ def update_user():
         for fila in filas:
             if email_user == fila[2]:
                 print("\033[95m\nEscriba los datosa a actualizar\033[0m")
-                new_name = input("Nuevo nombre: ")
-                new_last_name = input("Nuevos apellidos: ")
+                new_name = input("Nuevo nombre: ").lower()
+                new_last_name = input("Nuevos apellidos: ").lower()
                 new_email = input("Nuevo correo: ").lower()
                 fila[0] = new_name
                 fila[1] = new_last_name
